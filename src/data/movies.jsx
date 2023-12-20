@@ -177,4 +177,72 @@ const movies = [
   },
 ];
 
-export default movies;
+export const Movies = movies.map((item) => {
+  
+  return (
+    <>
+      <div
+        style={{
+          display: "flex",
+          width: "27rem",
+          height: "15.625rem",
+          borderRadius: "0.625rem",
+          marginBottom: '5rem',
+          padding: '1.125rem 0rem 0rem 0.875rem',
+          backgroundColor: "#FFFFFF",
+          boxShadow: "0rem 0.25rem 2.5rem 0rem rgba(145, 124, 124, 0.25);",
+        }}
+      >
+        <div>
+         <img src={item.image} style={{
+          width: '6.375rem',
+          height: '6.25rem',
+          flexShrink: '0',
+          borderRadius: '0.625rem',
+         }}></img> 
+        </div>
+        <div style={{
+          paddingLeft: '1.188rem',
+          fontSize: '1.25rem',
+          fontfamily: 'Kanit',
+          color: '#181818',
+          fontStyle: 'normal',
+          fontWeight: '400',
+          lineHeight: '1.125rem',
+        }}>
+          Title: {item.title}
+          <p>Year: {item.year}</p>
+          <p>Runtime: {item.runtime}</p>
+          <div style={{display: 'flex', flexWrap: 'row', gap: '0.563rem', alignItems: 'center'}}>
+            genres:{
+            item.genres.map((genresMovie) =>{
+              return (
+                <div style={{
+                  color: '#000',
+                  fontFamily: 'Kanit',
+                  fontSize: '1rem',
+                  fontStyle: 'normal',
+                  fontWeight: '400',
+                  lineHeight: '1.125rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: '4.25rem',
+                  height: '1.688rem',
+                  borderRadius: '0.625rem',
+                  backgroundColor: '#EAAC99'
+                }}>
+                  {genresMovie}
+                </div>
+              )
+            })
+          }
+          </div>
+          <p>IMDB Ratings: {item.imdbRating}</p>
+          <p>IMDB Votes: {item.imdbVotes}</p>
+        </div>
+      </div>
+      </>
+  );
+});
